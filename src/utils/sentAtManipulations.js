@@ -10,6 +10,5 @@ export const convertSentAt = (sentAt) => (
     sameElse: 'dddd, MMMM D YYYY'
 }));
 
-export const sortBySentAt = () => {
-
-}
+export const sortBySentAt = (messages) =>
+  messages.sort((a, b) => moment(a.sentAt).unix() - moment(b.sentAt).unix());

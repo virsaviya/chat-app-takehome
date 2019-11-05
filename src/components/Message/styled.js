@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   padding: 5px 5px 5px 25px;
 
   &:hover {
-  background: #F9FAFC;
+    background: #F9FAFC;
 }
 `;
 
@@ -16,7 +16,7 @@ export const MetaInfo = styled.div`
 `;
 
 export const Username = styled.div`
-  color: #1c4b81;
+  color: #1C4b81;
   font-size: 16px;
   font-weight: 900;
   padding-right: 5px;
