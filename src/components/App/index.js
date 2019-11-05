@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import LoadMoreIcon from '@material-ui/icons/MoreHoriz';
 
 import Message from '../Message';
 import Filters from '../Filters';
@@ -7,7 +6,7 @@ import LoadMore from '../LoadMore';
 import { Wrapper, Logo } from './styled';
 import mock_data from '../../assets/mock_data.json';
 import logo from '../../assets/logo.svg';
-import { convertSentAt, sortBySentAt } from '../../utils/sentAtManipulations';
+import { sortBySentAt } from '../../utils/sentAtManipulations';
 
 function App() {
   const [sortByAsc, toggleSortByAsc] = useState(false);
@@ -18,6 +17,13 @@ function App() {
     : sortBySentAt(mock_data).reverse();
   const messagesToRender = messages.slice(0, pageCount * 20)
 
+// normally, this would be done with a call to the backend,
+// and the frontend would rerender accordingly
+  const deleteMessage = (messageId) => {
+    const messageIdx = messages.findIndex((message) => message.uuid === messageId);
+    messagesToRender.splice(messageIdx, 1);
+  }
+
   return (
     <Wrapper>
       <Logo alt="modern health logo" src={logo} />
@@ -26,11 +32,13 @@ function App() {
         messagesToRender.map((message) => (
           <Message
             key={message.uuid}
+            id={message.uuid}
             senderId={message.senderUuid}
             username={message.senderUsername}
             avatar={message.senderAvatar}
             content={message.content}
-            sentAt={convertSentAt(message.sentAt)}
+            sentAt={message.sentAt}
+            deleteMessage={deleteMessage}
           />
         ))
       }

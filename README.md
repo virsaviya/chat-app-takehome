@@ -1,4 +1,4 @@
-# Modern Health Takehome
+# Takehome
 
 1. ~~All messages are displayed in a list.~~
 2. ~~Each message has its `content`, `senderUuid`, and `sentAt` properties displayed.~~

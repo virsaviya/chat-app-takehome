@@ -4,10 +4,11 @@ export const Wrapper = styled.div`
   display: flex;
   font-size: 14px;
   padding: 5px 5px 5px 25px;
+  position: relative;
 
   &:hover {
     background: #F9FAFC;
-}
+  }
 `;
 
 export const MetaInfo = styled.div`
@@ -27,8 +28,4 @@ export const Timestamp = styled.div`
   color: #a4b9c4;
   font-size: 12px;
 }
-`;
-
-export const Content = styled.div`
-  ${'' /* padding: 5px; */}
 `;
