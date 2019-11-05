@@ -3,14 +3,16 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
+
+import { Title } from './styled';
 
 import Message from '../Message';
 
 function CustomDialog({ handleClose, open, action, messageProps }) {
   const deleteContent = (
     <div>
-      <p>Are you sure you want to delete this message? This cannot be undone.</p>
+      <div>Are you sure you want to delete this message? This cannot be undone.</div>
+      <br />
       <Message {...messageProps} />
     </div>
   );
@@ -22,8 +24,8 @@ function CustomDialog({ handleClose, open, action, messageProps }) {
         open={open}
         onClose={handleClose}
       >
-        <DialogTitle>{action} message</DialogTitle>
         <DialogContent>
+          <Title>{action} message</Title>
           { action === 'Delete' ? deleteContent : miscContent }
         </DialogContent>
         <DialogActions>
